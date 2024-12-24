@@ -6,10 +6,10 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
       screenshotInterval = setInterval(() => {
         chrome.tabs.captureVisibleTab(null, { format: "png" }, (dataUrl) => {
           if (chrome.runtime.lastError) {
-            console.error("Error capturing screenshot:", chrome.runtime.lastError?.message || chrome.runtime.lastError);
-
+            console.error("Error capturing screenshot:", JSON.stringify(chrome.runtime.lastError, null, 2));
             return;
           }
+          
 
           // Generate a timestamped filename
           const timestamp = new Date().toISOString().replace(/[:.]/g, "-");
