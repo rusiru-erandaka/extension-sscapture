@@ -5,6 +5,7 @@
   "description": "Capture a full-page screenshot and save it to your downloads folder.",
   "permissions": [
     "downloads",
+    "tabs",
     "activeTab",
     "scripting",
     "storage"
