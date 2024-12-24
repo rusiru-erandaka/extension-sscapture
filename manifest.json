@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Full Page Screenshot",
   "version": "1.0",
-  "description": "Capture a full-page screenshot and save it to your downloads folder.",
+  "description": "Capture a full-page screenshot and save it to your downloads folder or Google Drive.",
   "permissions": [
     "downloads",
     "tabs",
@@ -11,13 +11,20 @@
     "storage"
   ],
   "host_permissions": [
-  "<all_urls>"
-],
+    "<all_urls>"
+  ],
   "action": {
     "default_title": "Capture Screenshot",
     "default_popup": "popup.html"
   },
   "background": {
     "service_worker": "background.js"
+  },
+  "oauth2": {
+    "client_id": "889788755448-un2snlul3kl9eu745na1076kjdh70qup.apps.googleusercontent.com",
+    "scopes": ["https://www.googleapis.com/auth/drive.file"]
+  },
+  "externally_connectable": {
+    "matches": ["https://accounts.google.com/*"]
   }
 }

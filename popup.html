@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Auto Screenshot</title>
-  <style>
-    button {
-      padding: 10px;
-      font-size: 16px;
-      cursor: pointer;
-      background-color: bisque;
-    }
-  </style>
+  <title>Full Page Screenshot</title>
+  <script src="popup.js"></script>
 </head>
 <body>
-  <button id="toggleScreenshots" data-state="off">Start Auto Screenshots</button>
-  <script src="popup.js"></script>
+  <button id="start-upload">Start Upload</button>
+  <script>
+    const script = document.createElement('script');
+    script.src = "https://apis.google.com/js/api.js";
+    script.onload = () => {
+      console.log("Google API loaded");
+    };
+    document.body.appendChild(script);
+  </script>
 </body>
 </html>
