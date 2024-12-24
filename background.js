@@ -6,7 +6,8 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
       screenshotInterval = setInterval(() => {
         chrome.tabs.captureVisibleTab(null, { format: "png" }, (dataUrl) => {
           if (chrome.runtime.lastError) {
-            console.error("Error capturing screenshot:", chrome.runtime.lastError);
+            console.error("Error capturing screenshot:", chrome.runtime.lastError?.message || chrome.runtime.lastError);
+
             return;
           }
 
