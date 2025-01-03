@@ -1,4 +1,4 @@
-let screenshotInterval = null; // Variable to store the interval ID
+let screenshotInterval = null;
 
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   if (message.action === "startScreenshots") {
@@ -11,11 +11,11 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
           }
           
 
-          // Generate a timestamped filename
+          
           const timestamp = new Date().toISOString().replace(/[:.]/g, "-");
           const filename = `screenshot-${timestamp}.png`;
 
-          // Download the screenshot
+          
           chrome.downloads.download({
             url: dataUrl,
             filename: filename,
@@ -26,7 +26,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
             }
           });
         });
-      }, 500); // Take a screenshot every 500ms (2 per second)
+      }, 500); 
     }
   } else if (message.action === "stopScreenshots") {
     if (screenshotInterval) {
