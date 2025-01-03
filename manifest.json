@@ -3,16 +3,14 @@
   "name": "Full Page Screenshot",
   "version": "1.0",
   "description": "Capture a full-page screenshot and save it to your downloads folder or Google Drive.",
-  "permissions": [
-    "downloads",
-    "tabs",
-    "activeTab",
-    "scripting",
-    "storage"
-  ],
+ "permissions": ["downloads", "tabs", "identity", "activeTab", "scripting", "storage"]
+,
   "host_permissions": [
-    "<all_urls>"
-  ],
+  "https://www.googleapis.com/*",
+  "https://accounts.google.com/*",
+  "https://drive.google.com/*"
+ ],
+
   "action": {
     "default_title": "Capture Screenshot",
     "default_popup": "popup.html"

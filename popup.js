@@ -1,3 +1,6 @@
+// Folder ID where the file will be uploaded
+const FOLDER_ID = '1S1FKR2zyQtpemsbXSNWvrR3gWowbszOk'; // Replace with your folder ID
+
 let gapiLoaded = false;
 
 function loadGapi() {
@@ -27,6 +30,7 @@ async function authenticateGoogle() {
   return authInstance.signIn();
 }
 
+// Upload screenshot to Google Drive
 async function uploadToDrive(blob, fileName) {
   try {
     const user = await authenticateGoogle();
@@ -35,6 +39,7 @@ async function uploadToDrive(blob, fileName) {
     const metadata = {
       name: fileName,
       mimeType: blob.type,
+      parents: [FOLDER_ID], // Specify the folder ID to upload the file to a specific folder
     };
 
     const form = new FormData();
@@ -84,10 +89,8 @@ function dataURLToBlob(dataURL) {
   const mimeString = dataURL.split(",")[0].split(":")[1].split(";")[0];
   const buffer = new ArrayBuffer(byteString.length);
   const data = new Uint8Array(buffer);
-
   for (let i = 0; i < byteString.length; i++) {
     data[i] = byteString.charCodeAt(i);
   }
-
   return new Blob([buffer], { type: mimeString });
 }
