@@ -30,7 +30,7 @@ async function authenticateGoogle() {
   return authInstance.signIn();
 }
 
-// Upload screenshot to Google Drive
+// Upload screenshot to Google Drive(saving in drive)
 async function uploadToDrive(blob, fileName) {
   try {
     const user = await authenticateGoogle();
