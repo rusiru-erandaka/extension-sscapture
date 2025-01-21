@@ -66,13 +66,13 @@ async function uploadToDrive(blob, fileName) {
     } else {
       console.error("Failed to upload file:", await response.json());
     }
-  } catch (error) {
+  } catch (error) { //uploading checker
     console.error("Error during Google Drive upload:", error);
   }
 }
 
 document.getElementById("start-upload").addEventListener("click", () => {
-  chrome.tabs.captureVisibleTab(null, { format: "png" }, (dataUrl) => {
+  chrome.tabs.captureVisibleTab(null, { format: "png" }, (dataUrl) => { //file type maker
     if (chrome.runtime.lastError) {
       console.error("Screenshot capture error:", chrome.runtime.lastError);
       return;
