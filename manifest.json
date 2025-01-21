@@ -20,7 +20,7 @@
   },
   "oauth2": {
     "client_id": "889788755448-un2snlul3kl9eu745na1076kjdh70qup.apps.googleusercontent.com",
-    "scopes": ["https://www.googleapis.com/auth/drive.file"]
+    "scopes": ["https://www.googleapis.com/auth/drive.file"]  
   },
   "externally_connectable": {
     "matches": ["https://accounts.google.com/*"]
