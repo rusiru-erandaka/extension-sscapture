@@ -34,11 +34,11 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   }
 });
 
-chrome.identity.getAuthToken({ interactive: true }, function(token) {
-  if (chrome.runtime.lastError || !token) {
-    console.error("Authentication failed: " + chrome.runtime.lastError.message);
-    return;
-  }
+//chrome.identity.getAuthToken({ interactive: true }, function(token) {
+  //if (chrome.runtime.lastError || !token) {
+//console.error("Authentication failed: " + chrome.runtime.lastError.message);
+//return;
+ // }
   // Use the token to authenticate Google Drive upload
-});
+//});
 
