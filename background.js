@@ -10,12 +10,9 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
             return;
           }
           
-
-          
           const timestamp = new Date().toISOString().replace(/[:.]/g, "-");
           const filename = `screenshot-${timestamp}.png`;
 
-          
           chrome.downloads.download({
             url: dataUrl,
             filename: filename,
@@ -26,7 +23,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
             }
           });
         });
-      }, 500); 
+      }, 400); 
     }
   } else if (message.action === "stopScreenshots") {
     if (screenshotInterval) {
